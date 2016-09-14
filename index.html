@@ -1,1 +1,35 @@
-<script>document.write(new Date());</script>
+<link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+<style type="text/css">
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+	input {
+		border: 0;
+		width: 100%;
+		text-align: center;
+		zoom: 500%;
+		font-family: Hack, monospace;
+	}
+	input:focus{
+    	outline: none;
+	}
+</style>
+<div>
+<input
+	id='INPUT'
+	onclick='this.select()'
+/>
+<script>
+	setInterval(function () {
+		if (INPUT !== document.activeElement) {
+			INPUT.value = (new Date()).toISOString();
+		}
+	});
+</script>
+
+</div>

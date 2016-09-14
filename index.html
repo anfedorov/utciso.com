@@ -28,6 +28,7 @@
 	setInterval(function () {
 		if (INPUT !== document.activeElement) {
 			INPUT.value = (new Date()).toISOString();
+			INPUT.setSelectionRange(0, INPUT.value.length);
 		}
 	});
 </script>

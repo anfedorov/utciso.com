@@ -21,17 +21,33 @@
     	outline: none;
 	}
 </style>
-<div>
-<input
-	id='INPUT'
-	onclick='this.setSelectionRange(0, this.value.length);'
-/>
+
+<body>
+	<div>
+		<input
+			id='INPUT'
+			onclick='this.setSelectionRange(0, this.value.length);'
+		/>
+	</div>
+</body>
+
 <script>
 	setInterval(function () {
 		if (INPUT !== document.activeElement) {
 			INPUT.value = (new Date()).toISOString();
 		}
 	});
-</script>
 
-</div>
+	document.body.onkeydown = function (e) {
+		var a = (e.keyCode == 65) || (e.key == 'a'),
+		    c = (e.keyCode == 67) || (e.key == 'c');
+
+		if ((a || c) && (e.metaKey || e.ctrlKey)) {
+			if (a) e.preventDefault();
+			INPUT.focus();
+			INPUT.setSelectionRange(0, INPUT.value.length);
+		}
+	};
+
+	document.body.focus();
+</script>

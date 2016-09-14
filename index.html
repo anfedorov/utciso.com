@@ -39,13 +39,19 @@
 	});
 
 	document.body.onkeydown = function (e) {
-		var a = (e.keyCode == 65) || (e.key == 'a'),
-		    c = (e.keyCode == 67) || (e.key == 'c');
+		var a = (e.keyCode === 65) || (e.key === 'a'),
+		    c = (e.keyCode === 67) || (e.key === 'c'),
+		    esc = (e.keyCode === 27);
 
 		if ((a || c) && (e.metaKey || e.ctrlKey)) {
 			if (a) e.preventDefault();
 			INPUT.focus();
 			INPUT.setSelectionRange(0, INPUT.value.length);
+		}
+
+		if (esc) {
+			INPUT.blur();
+			document.body.focus();
 		}
 	};
 

@@ -14,7 +14,7 @@
 		border: 0;
 		width: 100%;
 		text-align: center;
-		zoom: 500%;
+		font-size: 400%;
 		font-family: Hack, monospace;
 	}
 	input:focus{
@@ -36,7 +36,7 @@
 		if (INPUT !== document.activeElement) {
 			INPUT.value = (new Date()).toISOString();
 		}
-	});
+	}, 10);
 
 	document.body.onkeydown = function (e) {
 		var a = (e.keyCode === 65) || (e.key === 'a'),
